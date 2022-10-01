@@ -1,4 +1,4 @@
-# bitly-frotnend
+# bitly-frontnend
 
 ## Project setup
 ```
