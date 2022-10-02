@@ -1,18 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <DesktopMenu v-if="auth.loggedIn" />
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import DesktopMenu from "@/components/Menu/DesktopMenu";
+import {mapState} from "vuex";
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  components:{
+    DesktopMenu,
+  },
+  computed:{
+    ...mapState({
+      auth: state => state.auth,
+    }),
+  },
 }
 </script>
+
 
 <style>
 #app {
@@ -24,3 +33,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+
